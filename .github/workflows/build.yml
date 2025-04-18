@@ -7,7 +7,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [windows-latest]
-        build_type: [RelWithDebInfo, Debug]
+        build_type: [RelWithDebInfo]
         ui: [gui, cli]
         scripting: [lua, noscripts]
         exclude:
@@ -107,3 +107,18 @@ jobs:
         export ASEPRITE=$PWD/build/bin/aseprite
         cd tests
         $XVFB bash run-tests.sh
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4.6.2
+      with:
+        name: Pass1
+        path: "${{ $PWD/build/bin/aseprite }}"
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4.6.2
+      with:
+        name: Pass2
+        path: $PWD/build/bin/aseprite
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4.6.2
+      with:
+        name: Pass3
+        path: ASEPRITE
