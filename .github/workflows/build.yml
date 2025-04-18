@@ -110,11 +110,6 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v4.6.2
       with:
-        name: Pass1
-        path: "${{ ./build/bin/aseprite }}"
-    - name: Upload artifact
-      uses: actions/upload-artifact@v4.6.2
-      with:
         name: Pass2
         path: ./build/bin/aseprite
     - name: Upload artifact
